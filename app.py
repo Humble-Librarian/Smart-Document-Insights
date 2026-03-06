@@ -43,7 +43,10 @@ for key, default in {"pages": None, "bm25": None, "chat_history": []}.items():
 
 # ── Sidebar ──────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.image("https://img.shields.io/badge/Smart%20Document-Insights-6366F1?style=for-the-badge&logo=googledrive&logoColor=white", use_container_width=True)
+    st.image(
+        "https://img.shields.io/badge/Smart%20Document-Insights-6366F1?style=for-the-badge&logo=googledrive&logoColor=white",
+        width="stretch",
+    )
     st.markdown("---")
     
     st.header("Upload Document")
