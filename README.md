@@ -165,7 +165,7 @@ BM25Okapi Indexing (Page Corpus)
     ▼
 User Query Input
     │
-    ├──► Tokenization & Retrieval (Find Top 3 Pages)
+    ├──► Tokenization & Retrieval (Find Top 10 Pages)
     └──► Context Fusion (Labelled Context Block)
             │
             ▼
@@ -185,7 +185,7 @@ Key settings modified in `utils/generator.py`:
 MODEL_ID    = "llama-3.3-70b-versatile"
 MAX_TOKENS  = 512
 TEMPERATURE = 0.2      # Low for factual consistency
-TOP_N_PAGES = 3        # Context window size
+TOP_N_PAGES = 10       # Context window size
 ```
 
 ---
