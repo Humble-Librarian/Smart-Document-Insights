@@ -1,0 +1,5 @@
+streamlit
+pdfplumber
+rank_bm25
+groq
+python-dotenv
