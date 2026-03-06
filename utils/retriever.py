@@ -15,7 +15,7 @@ def build_index(pages):
     return BM25Okapi(tokenized_corpus)
 
 
-def retrieve_pages(bm25, pages, query, top_n=3):
+def retrieve_pages(bm25, pages, query, top_n=10):
     """
     Retrieves the top-N most relevant pages for the given query.
 
