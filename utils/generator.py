@@ -1,10 +1,9 @@
 import os
 import groq
+import streamlit as st
 from dotenv import load_dotenv
 
 load_dotenv()
-
-client = groq.Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 SYSTEM_PROMPT = (
     "You are a document assistant. Answer the user's question using only the "
@@ -24,6 +23,14 @@ def generate_answer(retrieved_pages, query):
     Yields:
         Streamed text chunks from the LLM response.
     """
+    # Initialize Groq client here so it doesn't crash the app on boot if key is missing
+    api_key = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY"))
+    if not api_key:
+        yield "Error: GROQ_API_KEY is not set. Please add it to Streamlit Secrets."
+        return
+
+    client = groq.Groq(api_key=api_key)
+
     # Build context string with page labels
     context = "\n\n".join(
         f"[Page {p['page']}]\n{p['text']}" for p in retrieved_pages
